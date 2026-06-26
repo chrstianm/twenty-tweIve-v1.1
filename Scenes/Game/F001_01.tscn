@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://0m31ti6mw0er"]
+
+[ext_resource type="Script" uid="uid://olshy0nqyw3m" path="res://Scenes/Scripts/f001_01.gd" id="1_wx5nh"]
+[ext_resource type="Texture2D" uid="uid://e1ihpautx8r1" path="res://Assets/Digicam/DSC06859.JPG" id="2_4aqfn"]
+[ext_resource type="Texture2D" uid="uid://bp7xsg7etv8ib" path="res://Assets/Cursor/Left_Button.png" id="2_f6qfd"]
+[ext_resource type="Script" uid="uid://drp8uwkibvcbo" path="res://Scenes/Area2D_Scripts/kiosk_left_button.gd" id="5_4aqfn"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="6_4aqfn"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="7_yjpth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy4dh"]
+size = Vector2(77.55078, 101.25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6r5sh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rnayp"]
+font = ExtResource("7_yjpth")
+font_size = 10
+
+[node name="F001-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_wx5nh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_4aqfn")
+
+[node name="CR" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CR"]
+visible = false
+position = Vector2(591, 357)
+shape = SubResource("RectangleShape2D_yy4dh")
+
+[node name="LeftButton" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 550.0
+offset_right = 1819.0001
+offset_bottom = 1830.0
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("2_f6qfd")
+script = ExtResource("5_4aqfn")
+
+[node name="TextLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 269.0
+offset_right = 595.23193
+offset_bottom = 294.93515
+scale = Vector2(2.005, 2.005)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6r5sh")
+text = "am i not alone?"
+label_settings = SubResource("LabelSettings_rnayp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextLabel2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 270.0
+offset_right = 594.16956
+offset_bottom = 295.93515
+scale = Vector2(2.005, 2.005)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6r5sh")
+text = "why am i here again?"
+label_settings = SubResource("LabelSettings_rnayp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 21.0
+offset_right = 95.0
+offset_bottom = 44.0
+scale = Vector2(2.025, 2.025)
+text = "Time: 9:47 PM"
+label_settings = ExtResource("6_4aqfn")
+
+[connection signal="input_event" from="CR" to="." method="_on_cr_input_event"]
+[connection signal="mouse_entered" from="CR" to="." method="_on_cr_mouse_entered"]
+[connection signal="mouse_exited" from="CR" to="." method="_on_cr_mouse_exited"]
+[connection signal="gui_input" from="LeftButton" to="LeftButton" method="_on_gui_input"]

@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsqhw7qp8bt5f"]
+
+[ext_resource type="Script" uid="uid://drdj8mas0vpe8" path="res://Scenes/Scripts/f_037_01.gd" id="1_kpx2v"]
+[ext_resource type="Texture2D" uid="uid://dkremu66vr8dq" path="res://Assets/Digicam/DSC06957.JPG" id="2_kpx2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it0ry"]
+size = Vector2(150, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80mji"]
+size = Vector2(508, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpx2v"]
+size = Vector2(119, 96)
+
+[node name="F037-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kpx2v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_kpx2v")
+
+[node name="forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forward"]
+position = Vector2(569, 166)
+shape = SubResource("RectangleShape2D_it0ry")
+
+[node name="backward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backward"]
+position = Vector2(604, 543)
+shape = SubResource("RectangleShape2D_80mji")
+debug_color = Color(0.5838055, 0.39370722, 0.97388846, 0.41960785)
+
+[node name="ToNote" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToNote"]
+position = Vector2(384, 451)
+shape = SubResource("RectangleShape2D_kpx2v")
+
+[connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="backward" to="." method="_on_backward_input_event"]
+[connection signal="mouse_entered" from="backward" to="." method="_on_backward_mouse_entered"]
+[connection signal="mouse_exited" from="backward" to="." method="_on_backward_mouse_exited"]
+[connection signal="input_event" from="ToNote" to="." method="_on_to_note_input_event"]
+[connection signal="mouse_entered" from="ToNote" to="." method="_on_to_note_mouse_entered"]
+[connection signal="mouse_exited" from="ToNote" to="." method="_on_to_note_mouse_exited"]

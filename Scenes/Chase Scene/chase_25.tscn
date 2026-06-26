@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcroe4dsr8bf2"]
+
+[ext_resource type="Script" uid="uid://tgq461kpcgya" path="res://Scenes/Chase Scene/chase_25.gd" id="1_4w5fs"]
+[ext_resource type="Texture2D" uid="uid://bdbqnxmb84g05" path="res://Assets/Chase_Scene/Screenshot 2026-06-24 082900.png" id="2_ma0tt"]
+[ext_resource type="Script" uid="uid://bevkhs0t0cfm0" path="res://Scenes/Chase Scene/Script/glitch.gd" id="3_ma0tt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0oqll"]
+radius = 50.48762
+
+[node name="chase25" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4w5fs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_ma0tt")
+
+[node name="Forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
+position = Vector2(486, 157)
+shape = SubResource("CircleShape2D_0oqll")
+
+[node name="GlitchLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="GlitchLayer" node_paths=PackedStringArray("camera")]
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_ma0tt")
+camera = NodePath("../Camera2D")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="GlitchLayer"]
+position = Vector2(576, 324)
+
+[connection signal="input_event" from="Forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="Forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="Forward" to="." method="_on_forward_mouse_exited"]

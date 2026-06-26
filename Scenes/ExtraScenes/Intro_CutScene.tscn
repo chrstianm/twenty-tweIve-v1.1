@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1xd7iajajm5q"]
+
+[ext_resource type="Script" uid="uid://dce6epnuym7sp" path="res://Scenes/ExtraScenes/Script/intro_cut_scene.gd" id="1_2ujbw"]
+[ext_resource type="Shader" uid="uid://cessl0n4cx8ps" path="res://Scenes/Intoduction_Clip/Shader/SubviewportContainer.gdshader" id="2_2ujbw"]
+[ext_resource type="VideoStream" uid="uid://ceito8kqqnsf1" path="res://Assets/Video_Clips/revised-intro-ogmywt.ogv" id="2_jk6wh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ujbw"]
+shader = ExtResource("2_2ujbw")
+shader_parameter/shake_power = 0.005
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 10.0
+shader_parameter/color_drift = 0.0005
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ujbw")
+
+[node name="SubViewport" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_2ujbw")
+layout_mode = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewport"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport/SubViewport"]
+offset_left = 95.0
+offset_top = 15.0
+offset_right = 1448.4238
+offset_bottom = 862.6745
+stream = ExtResource("2_jk6wh")
+autoplay = true

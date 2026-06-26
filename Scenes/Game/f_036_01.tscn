@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmau216pggs2r"]
+
+[ext_resource type="Script" uid="uid://bw7k3fik4ahh6" path="res://Scenes/Scripts/f_036_01.gd" id="1_0pdvp"]
+[ext_resource type="Texture2D" uid="uid://cd7mlw5h2j03l" path="res://Assets/Digicam/DSC06956.JPG" id="2_0pdvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s7s4"]
+size = Vector2(248, 238.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04coj"]
+size = Vector2(461, 24)
+
+[node name="F036-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0pdvp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_0pdvp")
+
+[node name="forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forward"]
+position = Vector2(585, 274.25)
+shape = SubResource("RectangleShape2D_0s7s4")
+
+[node name="backward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backward"]
+position = Vector2(594, 532)
+shape = SubResource("RectangleShape2D_04coj")
+debug_color = Color(0.60730803, 0.38522795, 0.9583625, 0.41960785)
+
+[connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="backward" to="." method="_on_backward_input_event"]
+[connection signal="mouse_entered" from="backward" to="." method="_on_backward_mouse_entered"]
+[connection signal="mouse_exited" from="backward" to="." method="_on_backward_mouse_exited"]

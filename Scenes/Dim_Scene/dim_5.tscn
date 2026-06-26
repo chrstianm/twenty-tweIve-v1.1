@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvqy2q3jbje51"]
+
+[ext_resource type="Script" uid="uid://d31xdve1oanvm" path="res://Scenes/Dim_Scene/Script/dim_5.gd" id="1_fnt1j"]
+[ext_resource type="Texture2D" uid="uid://gy0itlln3h1p" path="res://Assets/Pictures/DIm_Light/dim_light_5.jpg" id="1_wa1qi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa1qi"]
+size = Vector2(254.5, 169)
+
+[node name="DIM-5" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fnt1j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_wa1qi")
+
+[node name="Forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
+position = Vector2(573, 315)
+shape = SubResource("RectangleShape2D_wa1qi")
+debug_color = Color(0.25310415, 0.6306205, 0.2278817, 0.41960785)
+
+[connection signal="input_event" from="Forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="Forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="Forward" to="." method="_on_forward_mouse_exited"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://y6o3x4507tv0"]
+
+[ext_resource type="Texture2D" uid="uid://bx0tb66kaii7" path="res://Assets/Digicam/DSC06846.JPG" id="1_j14li"]
+[ext_resource type="Script" uid="uid://b2lmnrjlfadf8" path="res://Scenes/Scripts/f_012_01.gd" id="1_jaghg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j14li"]
+size = Vector2(171, 199)
+
+[node name="F012-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_jaghg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_j14li")
+
+[node name="Forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
+position = Vector2(597, 334)
+shape = SubResource("RectangleShape2D_j14li")
+
+[connection signal="input_event" from="Forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="Forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="Forward" to="." method="_on_forward_mouse_exited"]

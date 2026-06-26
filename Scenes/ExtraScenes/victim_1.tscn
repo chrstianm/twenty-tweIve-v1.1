@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpuf62rb1cbo4"]
+
+[ext_resource type="Shader" uid="uid://fgvjrs21ucdq" path="res://Scenes/Intoduction_Clip/Shader/Archive-Shader.gdshader" id="1_3xf32"]
+[ext_resource type="Script" uid="uid://nwyb40luqnqa" path="res://Scenes/ExtraScenes/Script/victim_1.gd" id="1_ve7tk"]
+[ext_resource type="Texture2D" uid="uid://cny0cdpwtwnlt" path="res://Assets/Pictures/victim_3.jpg" id="4_1pmlu"]
+[ext_resource type="Shader" uid="uid://cjbw4r6bdbs4d" path="res://Scenes/Intoduction_Clip/Shader/blurred_shader.gdshader" id="4_k86n6"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="6_s8tbq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1pmlu"]
+shader = ExtResource("4_k86n6")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s04v4"]
+shader = ExtResource("1_3xf32")
+shader_parameter/blur_amount = 1.5
+
+[node name="PoliceReport" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ve7tk")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1140, 617)
+render_target_update_mode = 4
+
+[node name="Blurred" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+z_index = 10
+material = SubResource("ShaderMaterial_1pmlu")
+offset_left = 510.0
+offset_top = 149.0
+offset_right = 674.0
+offset_bottom = 303.0
+mouse_filter = 2
+
+[node name="SHADER" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+visible = false
+z_index = 10
+material = SubResource("ShaderMaterial_s04v4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 587.0
+offset_bottom = 587.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Victim" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+offset_left = 472.0
+offset_top = 136.0
+offset_right = 660.0
+offset_bottom = 319.0
+texture = ExtResource("4_1pmlu")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport"]
+offset_left = 529.99994
+offset_top = 331.0
+offset_right = 571.99994
+offset_bottom = 354.0
+scale = Vector2(1.695, 1.695)
+text = "tulungan nyo ako"
+label_settings = ExtResource("6_s8tbq")
+
+[node name="Label2" type="Label" parent="SubViewportContainer/SubViewport"]
+visible = false
+offset_left = 535.0
+offset_top = 332.0
+offset_right = 606.0
+offset_bottom = 355.0
+scale = Vector2(1.695, 1.695)
+text = "buhay pa ako"
+label_settings = ExtResource("6_s8tbq")

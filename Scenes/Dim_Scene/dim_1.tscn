@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlk8gkjtq5r1q"]
+
+[ext_resource type="Script" uid="uid://orx5qqcs8n2h" path="res://Scenes/Dim_Scene/Script/dim_1.gd" id="1_c776m"]
+[ext_resource type="Texture2D" uid="uid://dth62irf6oiev" path="res://Assets/Pictures/DIm_Light/dim_light_1.jpg" id="1_pqydi"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="2_2ybhu"]
+[ext_resource type="VideoStream" uid="uid://ddh5nxxulkdgh" path="res://Assets/Jumpscares_OGV/he_sees_you.ogv" id="4_jvgm3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c776m"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvgm3"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssegw"]
+size = Vector2(273.5, 196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssegw"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="DIM-1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_c776m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_pqydi")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 291.0
+offset_top = 276.0
+offset_right = 581.0
+offset_bottom = 314.5
+scale = Vector2(2, 2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_c776m")
+text = "as you start to navigate, your flashlight turned 
+off. you take each step cautiously as he
+might be following."
+label_settings = ExtResource("2_2ybhu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 347.0
+offset_top = 293.0
+offset_right = 582.0
+offset_bottom = 316.0
+scale = Vector2(2, 2)
+theme_override_styles/normal = SubResource("StyleBoxFlat_jvgm3")
+text = "if you hear him, stop moving. he's near."
+label_settings = ExtResource("2_2ybhu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Forward" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
+visible = false
+position = Vector2(583, 315)
+shape = SubResource("RectangleShape2D_ssegw")
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 465.99997
+offset_top = 274.99997
+offset_right = 519.0
+offset_bottom = 297.99997
+scale = Vector2(4.365, 4.365)
+text = "DONT MOVE"
+label_settings = ExtResource("2_2ybhu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 68.00001
+offset_right = 1414.0
+offset_bottom = 788.0
+scale = Vector2(0.695, 0.695)
+mouse_filter = 2
+stream = ExtResource("4_jvgm3")
+
+[node name="Label4" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 353.0
+offset_top = 283.0
+offset_right = 518.0
+offset_bottom = 306.0
+scale = Vector2(2.805, 2.805)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ssegw")
+text = "you shouldn't have done that"
+label_settings = ExtResource("2_2ybhu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="Forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="Forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="Forward" to="." method="_on_forward_mouse_exited"]

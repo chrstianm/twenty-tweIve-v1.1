@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkspadgey7055"]
+
+[ext_resource type="Script" uid="uid://cpd758yojrsio" path="res://Scenes/Scripts/f_033_01.gd" id="1_wwgls"]
+[ext_resource type="Texture2D" uid="uid://dn33l5m2v5ixe" path="res://Assets/Digicam/DSC06950.JPG" id="2_hw1rk"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_hw1rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmw7p"]
+size = Vector2(144, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1v11"]
+size = Vector2(394, 36)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmw7p"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw1rk"]
+size = Vector2(165, 129.5)
+
+[node name="F033-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_wwgls")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_hw1rk")
+
+[node name="forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forward"]
+position = Vector2(357, 279)
+shape = SubResource("RectangleShape2D_nmw7p")
+
+[node name="backward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backward"]
+position = Vector2(599, 527)
+shape = SubResource("RectangleShape2D_w1v11")
+debug_color = Color(0.6416345, 0.3598843, 0.95782524, 0.41960785)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 304.0
+offset_right = 829.0
+offset_bottom = 435.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 409.0
+offset_top = 255.00003
+offset_right = 644.5304
+offset_bottom = 278.00003
+scale = Vector2(1.565, 1.565)
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmw7p")
+text = "an old phone with one saved voicemail"
+label_settings = ExtResource("3_hw1rk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 505.0
+offset_top = 254.0
+offset_right = 641.1022
+offset_bottom = 277.0
+scale = Vector2(1.565, 1.565)
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmw7p")
+text = "whose phone is this?"
+label_settings = ExtResource("3_hw1rk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="telephone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="telephone"]
+position = Vector2(745.5, 369.25)
+shape = SubResource("RectangleShape2D_hw1rk")
+
+[connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="backward" to="." method="_on_backward_input_event"]
+[connection signal="mouse_entered" from="backward" to="." method="_on_backward_mouse_entered"]
+[connection signal="mouse_exited" from="backward" to="." method="_on_backward_mouse_exited"]
+[connection signal="input_event" from="telephone" to="." method="_on_telephone_input_event"]

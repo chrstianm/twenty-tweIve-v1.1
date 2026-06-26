@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://23gfr5uf0x6e"]
+
+[ext_resource type="Script" uid="uid://bkcj2tutggu7r" path="res://Scenes/Scripts/f_032_01.gd" id="1_w6nhu"]
+[ext_resource type="Texture2D" uid="uid://c5wp54a5w6vwt" path="res://Assets/Digicam/DSC06949.JPG" id="2_2qyyp"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_2qyyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vgxr"]
+size = Vector2(185, 127.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gihrp"]
+size = Vector2(513, 34.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vgxr"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="F032-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_w6nhu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_2qyyp")
+
+[node name="forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forward"]
+position = Vector2(602.5, 288.875)
+shape = SubResource("RectangleShape2D_7vgxr")
+
+[node name="backward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backward"]
+position = Vector2(586, 526.25)
+shape = SubResource("RectangleShape2D_gihrp")
+debug_color = Color(0.669658, 0.3251266, 0.9765479, 0.41960785)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 507.0
+offset_top = 212.0
+offset_right = 693.0
+offset_bottom = 357.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 468.0
+offset_top = 292.0
+offset_right = 591.702
+offset_bottom = 315.0
+scale = Vector2(2.215, 2.215)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vgxr")
+text = "why isthis her e?"
+label_settings = ExtResource("3_2qyyp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="backward" to="." method="_on_backward_input_event"]
+[connection signal="mouse_entered" from="backward" to="." method="_on_backward_mouse_entered"]
+[connection signal="mouse_exited" from="backward" to="." method="_on_backward_mouse_exited"]

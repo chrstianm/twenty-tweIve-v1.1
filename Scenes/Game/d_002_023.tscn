@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://cab10vwlnfqpn"]
+
+[ext_resource type="Script" uid="uid://bmvdwyie7mwwe" path="res://Scenes/Scripts/d_002_023.gd" id="1_ahvf1"]
+[ext_resource type="Texture2D" uid="uid://cdjkm1ib25xhu" path="res://Assets/Digicam/DSC06831.JPG" id="1_tfyvk"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="4_ax4gf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aolvb"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahvf1"]
+font = ExtResource("4_ax4gf")
+font_size = 10
+
+[node name="d_002_023" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ahvf1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_tfyvk")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 153.0
+offset_right = 520.91516
+offset_bottom = 186.0
+scale = Vector2(2.005, 2.005)
+theme_override_styles/normal = SubResource("StyleBoxFlat_aolvb")
+text = "Something is wrong with this place"
+label_settings = SubResource("LabelSettings_ahvf1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 310.00003
+offset_top = 296.0
+offset_right = 550.3989
+offset_bottom = 329.0
+scale = Vector2(2.005, 2.005)
+theme_override_styles/normal = SubResource("StyleBoxFlat_aolvb")
+text = "Why are the random items on the ground?"
+label_settings = SubResource("LabelSettings_ahvf1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 329.0
+offset_top = 443.0
+offset_right = 605.0
+offset_bottom = 476.0
+scale = Vector2(2.005, 2.005)
+theme_override_styles/normal = SubResource("StyleBoxFlat_aolvb")
+text = "Why do I always feel like someones watching me?"
+label_settings = SubResource("LabelSettings_ahvf1")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=3 uid="uid://chixx7cdvbyov"]
+
+[ext_resource type="Script" uid="uid://bqb7fjdhof4ah" path="res://Scenes/ExtraScenes/Script/code_scene.gd" id="1_0tq2c"]
+[ext_resource type="Texture2D" uid="uid://du6cf6edru0mv" path="res://Assets/Pictures/code_asset.png" id="1_f27s7"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_221nl"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0tq2c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_f27s7")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 152.0
+offset_right = 403.0
+offset_bottom = 221.0
+scale = Vector2(5.285, 5.285)
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="Button1" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+text = " 1 "
+flat = true
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+text = " 2 "
+flat = true
+
+[node name="Button3" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+text = " 3 "
+flat = true
+
+[node name="Button4" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+text = " 4 "
+flat = true
+
+[node name="Button5" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+text = " 5 "
+flat = true
+
+[node name="Button6" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+text = " 6  "
+flat = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 574.0
+offset_right = 579.0
+offset_bottom = 591.0
+scale = Vector2(2.295, 2.295)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_221nl")
+theme_override_font_sizes/font_size = 10
+text = "back ->"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

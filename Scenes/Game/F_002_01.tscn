@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://s5m7cp7fqwj4"]
+
+[ext_resource type="Script" uid="uid://bf0okq88adc3m" path="res://Scenes/Scripts/f_002_01.gd" id="1_0irk0"]
+[ext_resource type="Texture2D" uid="uid://ccujlk3skola4" path="res://Assets/Digicam/DSC06858.JPG" id="2_p8tc8"]
+[ext_resource type="Script" uid="uid://c6nbajgyw8i6r" path="res://Scenes/Area2D_Scripts/kiosk_back_to_dit.gd" id="3_p8tc8"]
+[ext_resource type="Script" uid="uid://c0x15si0gl6ay" path="res://Scenes/Area2D_Scripts/back_f002.gd" id="4_4kgqa"]
+[ext_resource type="Shader" uid="uid://cjbw4r6bdbs4d" path="res://Scenes/Intoduction_Clip/Shader/blurred_shader.gdshader" id="5_0irk0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy4dh"]
+size = Vector2(77.55078, 101.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0irk0"]
+size = Vector2(317.5, 45)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjgwo"]
+shader = ExtResource("5_0irk0")
+shader_parameter/blur_amount = 2.0
+
+[node name="F002-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0irk0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_p8tc8")
+
+[node name="ToDIT" type="Area2D" parent="."]
+script = ExtResource("3_p8tc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToDIT"]
+position = Vector2(643, 337)
+shape = SubResource("RectangleShape2D_yy4dh")
+
+[node name="BACK" type="Area2D" parent="."]
+script = ExtResource("4_4kgqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BACK"]
+position = Vector2(615, 522)
+shape = SubResource("RectangleShape2D_0irk0")
+debug_color = Color(0.66915, 0.38691995, 0.84936535, 0.41960785)
+
+[node name="Blurred" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hjgwo")
+layout_mode = 0
+offset_left = 726.0
+offset_top = 230.0
+offset_right = 883.0
+offset_bottom = 444.0
+mouse_filter = 2
+
+[connection signal="input_event" from="ToDIT" to="." method="_on_to_dit_input_event"]
+[connection signal="input_event" from="ToDIT" to="ToDIT" method="_on_input_event"]
+[connection signal="mouse_entered" from="ToDIT" to="ToDIT" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ToDIT" to="ToDIT" method="_on_mouse_exited"]
+[connection signal="input_event" from="BACK" to="BACK" method="_on_input_event"]
+[connection signal="mouse_entered" from="BACK" to="BACK" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BACK" to="BACK" method="_on_mouse_exited"]

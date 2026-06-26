@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://bigoohjea7uj5"]
+
+[ext_resource type="Script" uid="uid://rokhx2p6om66" path="res://Scenes/ExtraScenes/Script/police_report_3.gd" id="1_r1fyo"]
+[ext_resource type="Texture2D" uid="uid://rk5vjgwiaeqr" path="res://Assets/Pictures/Logo_Sandigambayan.png" id="2_r1fyo"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_iujct"]
+[ext_resource type="Texture2D" uid="uid://dhiwicct5txdv" path="res://Assets/Pictures/Philippine_National_Police_seal.png" id="4_qchbd"]
+[ext_resource type="Shader" uid="uid://fgvjrs21ucdq" path="res://Scenes/Intoduction_Clip/Shader/Archive-Shader.gdshader" id="5_g3d18"]
+[ext_resource type="Texture2D" uid="uid://bryby2stqc380" path="res://Assets/Pictures/Victim3.jpg" id="6_4cu7s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ysx0"]
+font = ExtResource("3_iujct")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1fyo"]
+shader = ExtResource("5_g3d18")
+shader_parameter/blur_amount = 1.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1fyo"]
+font = ExtResource("3_iujct")
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[node name="PoliceReport" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1fyo")
+
+[node name="SubViewport" type="SubViewportContainer" parent="."]
+layout_mode = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewport"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="SANIDGAMBAYAN" type="TextureRect" parent="SubViewport/SubViewport"]
+z_index = 1
+offset_left = 908.0
+offset_top = 22.0
+offset_right = 1074.0
+offset_bottom = 188.0
+scale = Vector2(0.715, 0.715)
+texture = ExtResource("2_r1fyo")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 118.0
+offset_right = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport/SubViewport"]
+offset_left = 327.0
+offset_top = 40.0
+offset_right = 599.0
+offset_bottom = 63.0
+scale = Vector2(1.86, 1.86)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Philippines Police Department"
+label_settings = SubResource("LabelSettings_1ysx0")
+
+[node name="Label2" type="Label" parent="SubViewport/SubViewport"]
+z_index = 11
+offset_left = 454.99997
+offset_top = 115.0
+offset_right = 626.84265
+offset_bottom = 138.0
+scale = Vector2(1.495, 1.495)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Attempt to locate"
+label_settings = SubResource("LabelSettings_1ysx0")
+
+[node name="Label3" type="Label" parent="SubViewport/SubViewport"]
+z_index = 11
+offset_left = 358.0
+offset_top = 371.0
+offset_right = 677.0
+offset_bottom = 394.0
+scale = Vector2(1.495, 1.495)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "STATUS: Missing with active traces"
+label_settings = SubResource("LabelSettings_1ysx0")
+
+[node name="PNP" type="TextureRect" parent="SubViewport/SubViewport"]
+offset_left = 162.0
+offset_top = 19.0
+offset_right = 260.0
+offset_bottom = 155.79167
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("4_qchbd")
+expand_mode = 1
+
+[node name="SHADER" type="ColorRect" parent="SubViewport/SubViewport"]
+z_index = 10
+material = SubResource("ShaderMaterial_r1fyo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_right = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Victim" type="TextureRect" parent="SubViewport/SubViewport"]
+offset_left = 486.99997
+offset_top = 143.0
+offset_right = 656.0
+offset_bottom = 355.0
+texture = ExtResource("6_4cu7s")
+expand_mode = 1
+
+[node name="Desciption" type="Label" parent="SubViewport/SubViewport"]
+z_index = 10
+offset_left = 154.0
+offset_top = 424.00003
+offset_right = 884.0
+offset_bottom = 623.0
+scale = Vector2(1.2, 1.2)
+text = ".....no w itnesses fou n d.. description is based on what the investigation concluded:
+
+She was most likely roaming around the hallways of DIT building, carrying her bike around. Bloods on the floor indicates that she was not instantly taken away, but she fought ████ and escaped from teh back door. A note from her was seen on the back of the building. i w onder what co uld i t be. it says: ██d █i██e████"
+label_settings = SubResource("LabelSettings_r1fyo")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

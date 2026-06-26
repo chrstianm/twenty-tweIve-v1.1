@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tafm83q87udh"
+path="res://.godot/imported/testimony (20db).MP3-558615c99ffec1b166f5447a16c3c978.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/testimony (20db).MP3"
+dest_files=["res://.godot/imported/testimony (20db).MP3-558615c99ffec1b166f5447a16c3c978.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

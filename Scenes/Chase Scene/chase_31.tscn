@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://kyc2knsb6v28"]
+
+[ext_resource type="Script" uid="uid://dmorq0n81fl2b" path="res://Scenes/Chase Scene/chase_31.gd" id="1_jv6ic"]
+[ext_resource type="Texture2D" uid="uid://defipec1kak52" path="res://Assets/Chase_Scene/Screenshot 2026-06-24 082941.png" id="2_lvx6i"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_lvx6i"]
+[ext_resource type="Script" uid="uid://bevkhs0t0cfm0" path="res://Scenes/Chase Scene/Script/glitch.gd" id="4_lvx6i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0oqll"]
+radius = 42.059483
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddsw1"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="chase31" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_jv6ic")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_lvx6i")
+
+[node name="Forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
+position = Vector2(573, 293)
+shape = SubResource("CircleShape2D_0oqll")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 418.00003
+offset_top = 297.00003
+offset_right = 581.2433
+offset_bottom = 320.00003
+scale = Vector2(1.85, 1.85)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ddsw1")
+text = "akala mo makakaalis ka?"
+label_settings = ExtResource("3_lvx6i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GlitchLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="GlitchLayer" node_paths=PackedStringArray("camera")]
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_lvx6i")
+camera = NodePath("../Camera2D")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="GlitchLayer"]
+position = Vector2(576, 324)
+
+[connection signal="input_event" from="Forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="Forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="Forward" to="." method="_on_forward_mouse_exited"]

@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxe8qw0xhtalf"]
+
+[ext_resource type="Script" uid="uid://cb8c3pr36qi2a" path="res://Scenes/Intoduction_Clip/Script/game_select.gd" id="1_g31kb"]
+[ext_resource type="Shader" uid="uid://v7anflp3w6uj" path="res://Scenes/Intoduction_Clip/Shader/warp.gdshader" id="2_ebre4"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_g31kb"]
+[ext_resource type="Shader" uid="uid://fgvjrs21ucdq" path="res://Scenes/Intoduction_Clip/Shader/Archive-Shader.gdshader" id="3_ebre4"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="5_ebre4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8i6c"]
+shader = ExtResource("2_ebre4")
+shader_parameter/shake_power = 0.005
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 10.0
+shader_parameter/color_drift = 0.0005
+shader_parameter/curve_x = 0.1
+shader_parameter/curve_y = 0.1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh2d5"]
+bg_color = Color(0, 0.038333323, 0.1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_826nt"]
+font = ExtResource("2_g31kb")
+font_size = 11
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g31kb"]
+bg_color = Color(0, 0.039215688, 0.101960786, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7uut"]
+shader = ExtResource("3_ebre4")
+shader_parameter/blur_amount = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebre4"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="GameSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g31kb")
+
+[node name="SubViewport" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_j8i6c")
+layout_mode = 0
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewport"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="newgame" type="Label" parent="SubViewport/SubViewport"]
+z_index = 2
+offset_left = 217.0
+offset_top = 283.0
+offset_right = 301.0
+offset_bottom = 312.55737
+scale = Vector2(2.44, 2.44)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bh2d5")
+text = "new game"
+label_settings = SubResource("LabelSettings_826nt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="loadgame" type="Label" parent="SubViewport/SubViewport"]
+z_index = 1
+offset_left = 660.0
+offset_top = 286.0
+offset_right = 802.0
+offset_bottom = 315.55737
+scale = Vector2(2.44, 2.44)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g31kb")
+text = "load game
+last saved: 04-06-2012"
+label_settings = SubResource("LabelSettings_826nt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/SubViewport"]
+material = SubResource("ShaderMaterial_f7uut")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport/SubViewport"]
+visible = false
+offset_left = 264.0
+offset_top = 416.0
+offset_right = 533.8138
+offset_bottom = 433.44293
+scale = Vector2(2.47, 2.47)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ebre4")
+text = "the previous player does not exist anymore."
+label_settings = ExtResource("5_ebre4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="newgame_button" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 216.0
+offset_top = 295.0
+offset_right = 421.0
+offset_bottom = 353.0
+focus_mode = 0
+flat = true
+
+[node name="loadgame_button" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 659.0
+offset_top = 303.0
+offset_right = 1006.0
+offset_bottom = 360.0
+focus_mode = 0
+flat = true
+
+[connection signal="pressed" from="newgame_button" to="." method="_on_newgame_button_pressed"]
+[connection signal="pressed" from="loadgame_button" to="." method="_on_loadgame_button_pressed"]

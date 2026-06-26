@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1gxbor56fmas"]
+
+[ext_resource type="Script" uid="uid://b5plvjhlbet1d" path="res://Scenes/Scripts/f_013_01.gd" id="1_3uove"]
+[ext_resource type="Texture2D" uid="uid://c2i17dbl7fj5v" path="res://Assets/Digicam/entity_sighting.jpg" id="2_3uove"]
+[ext_resource type="Script" uid="uid://vtalid8mc587" path="res://Scenes/Area2D_Scripts/Subliminal_Glitch.gd" id="3_52d54"]
+
+[node name="F013-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_3uove")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_3uove")
+
+[node name="GlitchLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="GlitchLayer" node_paths=PackedStringArray("camera")]
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_52d54")
+camera = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="GlitchLayer"]
+position = Vector2(576, 324)

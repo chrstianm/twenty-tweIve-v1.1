@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckl55w7oy2dee"]
+
+[ext_resource type="Texture2D" uid="uid://b5bchbcc5ufeh" path="res://Assets/Digicam/DSC06853.JPG" id="1_kwbt5"]
+[ext_resource type="Script" uid="uid://c0vvtngvkybvt" path="res://Scenes/Scripts/f_005_01.gd" id="1_qvcxs"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_wpthj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvcxs"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4mmu"]
+font = ExtResource("2_wpthj")
+font_size = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvcxs"]
+size = Vector2(148, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4mmu"]
+size = Vector2(350.5, 38)
+
+[node name="F005-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_qvcxs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_kwbt5")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 287.0
+offset_right = 612.95105
+offset_bottom = 310.8112
+scale = Vector2(1.43, 1.43)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qvcxs")
+text = "where are you going?"
+label_settings = SubResource("LabelSettings_c4mmu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TO_DIT" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TO_DIT"]
+position = Vector2(420, 295)
+shape = SubResource("RectangleShape2D_qvcxs")
+
+[node name="BACK" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BACK"]
+position = Vector2(595, 527)
+shape = SubResource("RectangleShape2D_c4mmu")
+debug_color = Color(0.66915, 0.38691995, 0.84936535, 0.41960785)
+
+[connection signal="input_event" from="TO_DIT" to="." method="_on_to_dit_input_event"]
+[connection signal="mouse_entered" from="TO_DIT" to="." method="_on_to_dit_mouse_entered"]
+[connection signal="mouse_exited" from="TO_DIT" to="." method="_on_to_dit_mouse_exited"]
+[connection signal="input_event" from="BACK" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="BACK" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="BACK" to="." method="_on_back_mouse_exited"]

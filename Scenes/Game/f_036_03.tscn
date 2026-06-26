@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://btx81u32bjaoh"]
+
+[ext_resource type="Script" uid="uid://cs4d7hmk75y11" path="res://Scenes/Scripts/f_036_03.gd" id="1_5yfcw"]
+[ext_resource type="Texture2D" uid="uid://die4lvwwre32n" path="res://Assets/Digicam/DSC06960.JPG" id="1_xbmtc"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_gmxah"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="4_ivpj1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmxah"]
+size = Vector2(450, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivpj1"]
+size = Vector2(120, 66)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqhq5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqhq5"]
+font = ExtResource("4_ivpj1")
+font_color = Color(0, 0, 0, 1)
+
+[node name="F036-03" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5yfcw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_xbmtc")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 64.0
+offset_right = 866.0
+offset_bottom = 254.0
+color = Color(0, 0, 0, 1)
+
+[node name="back" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="back"]
+position = Vector2(583, 533)
+shape = SubResource("RectangleShape2D_gmxah")
+
+[node name="interact" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+position = Vector2(583, 369)
+shape = SubResource("RectangleShape2D_ivpj1")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 412.0
+offset_top = 318.0
+offset_right = 602.5237
+offset_bottom = 341.0
+scale = Vector2(2.005, 2.005)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dqhq5")
+text = "i wonder where i can use this"
+label_settings = ExtResource("3_gmxah")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 538.00006
+offset_top = 375.00006
+offset_right = 585.00006
+offset_bottom = 398.00006
+rotation = -0.41015238
+scale = Vector2(1.99, 1.99)
+text = "22216"
+label_settings = SubResource("LabelSettings_dqhq5")
+
+[connection signal="input_event" from="back" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="back" to="." method="_on_back_mouse_exited"]
+[connection signal="input_event" from="interact" to="." method="_on_interact_input_event"]

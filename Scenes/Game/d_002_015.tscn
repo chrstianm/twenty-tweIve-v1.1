@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5ddbxgejynuq"]
+
+[ext_resource type="Script" uid="uid://bopr01sc2hvij" path="res://Scenes/Scripts/d_002_015.gd" id="1_n2tv3"]
+[ext_resource type="Texture2D" uid="uid://da7lp1i6vdv5w" path="res://Assets/Digicam/DSC06913.JPG" id="2_n2tv3"]
+[ext_resource type="Texture2D" uid="uid://dm4wlvys4cj3u" path="res://Assets/Pictures/Hide_And_Seek/Faucet_HaS.png" id="3_mn0sd"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="4_omic7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v867d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rf1x0"]
+font = ExtResource("4_omic7")
+font_size = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyqbu"]
+size = Vector2(93.958984, 129.7539)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74e80"]
+size = Vector2(314.5, 36)
+
+[node name="d_002_015" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_n2tv3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_n2tv3")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("3_mn0sd")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 324.00003
+offset_top = 414.0
+offset_right = 541.0
+offset_bottom = 447.0
+scale = Vector2(2.005, 2.005)
+theme_override_styles/normal = SubResource("StyleBoxFlat_v867d")
+text = "Let's play a game shall we?"
+label_settings = SubResource("LabelSettings_rf1x0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 289.0
+offset_top = 415.0
+offset_right = 553.0
+offset_bottom = 448.0
+scale = Vector2(2.005, 2.005)
+theme_override_styles/normal = SubResource("StyleBoxFlat_v867d")
+text = "You can find me where you found the evidences"
+label_settings = SubResource("LabelSettings_rf1x0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
+position = Vector2(474.0205, 242.87695)
+shape = SubResource("RectangleShape2D_lyqbu")
+
+[node name="BACK" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BACK"]
+position = Vector2(599, 524)
+shape = SubResource("RectangleShape2D_74e80")
+debug_color = Color(0.66915, 0.38691995, 0.84936535, 0.41960785)
+
+[connection signal="input_event" from="Forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="Forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="Forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="BACK" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="BACK" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="BACK" to="." method="_on_back_mouse_exited"]

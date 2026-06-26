@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cswu4xh53ml3p"]
+
+[ext_resource type="Script" uid="uid://8lv5iddjeuvy" path="res://Scenes/ExtraScenes/Script/entity.gd" id="1_41ncx"]
+[ext_resource type="Texture2D" uid="uid://rks7b77hdl71" path="res://Assets/Pictures/Victim3_3_-removebg-preview.png" id="1_ojkro"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_41ncx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -229.0
+offset_top = -112.0
+offset_right = 34504.336
+offset_bottom = 18043.557
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("1_ojkro")

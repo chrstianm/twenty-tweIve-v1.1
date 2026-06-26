@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq41qniuixbdv"]
+
+[ext_resource type="Script" uid="uid://i6kxap0umr1a" path="res://Scenes/ExtraScenes/Script/intro_roll.gd" id="1_vmkx6"]
+[ext_resource type="Shader" uid="uid://v7anflp3w6uj" path="res://Scenes/Intoduction_Clip/Shader/warp.gdshader" id="2_vmkx6"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_5rduw"]
+[ext_resource type="Texture2D" uid="uid://cij6h666xegb4" path="res://Assets/Pictures/headphones_art.jpg" id="3_nrx8c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8i6c"]
+shader = ExtResource("2_vmkx6")
+shader_parameter/shake_power = 0.005
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 10.0
+shader_parameter/color_drift = 0.0005
+shader_parameter/curve_x = 0.1
+shader_parameter/curve_y = 0.1
+
+[node name="INTRO_ROLL" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vmkx6")
+
+[node name="SubViewport" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_j8i6c")
+layout_mode = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewport"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="SubViewport/SubViewport"]
+offset_left = 354.0
+offset_top = 284.99997
+offset_right = 565.0
+offset_bottom = 307.99997
+scale = Vector2(2.12, 2.12)
+text = "Wear earphones for better experience
+"
+label_settings = ExtResource("3_5rduw")
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/SubViewport"]
+offset_left = 551.0
+offset_top = 348.0
+offset_right = 576.3164
+offset_bottom = 369.09705
+scale = Vector2(2.12, 2.12)
+texture = ExtResource("3_nrx8c")
+expand_mode = 1

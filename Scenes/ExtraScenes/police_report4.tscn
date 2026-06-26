@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://dj6h5bwljp00q"]
+
+[ext_resource type="Script" uid="uid://drcr508qkcsml" path="res://Scenes/ExtraScenes/Script/police_report_4.gd" id="1_v65h8"]
+[ext_resource type="Texture2D" uid="uid://rk5vjgwiaeqr" path="res://Assets/Pictures/Logo_Sandigambayan.png" id="2_qsogq"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_d0loy"]
+[ext_resource type="Texture2D" uid="uid://dhiwicct5txdv" path="res://Assets/Pictures/Philippine_National_Police_seal.png" id="4_nydpq"]
+[ext_resource type="Shader" uid="uid://fgvjrs21ucdq" path="res://Scenes/Intoduction_Clip/Shader/Archive-Shader.gdshader" id="5_nihik"]
+[ext_resource type="Texture2D" uid="uid://8ebbfcc7dbv6" path="res://Assets/Pictures/Victim4(2).jpg" id="6_qsogq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ysx0"]
+font = ExtResource("3_d0loy")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1fyo"]
+shader = ExtResource("5_nihik")
+shader_parameter/blur_amount = 1.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1fyo"]
+font = ExtResource("3_d0loy")
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[node name="PoliceReport" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v65h8")
+
+[node name="SubViewport" type="SubViewportContainer" parent="."]
+layout_mode = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewport"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="SANIDGAMBAYAN" type="TextureRect" parent="SubViewport/SubViewport"]
+z_index = 1
+offset_left = 908.0
+offset_top = 22.0
+offset_right = 1074.0
+offset_bottom = 188.0
+scale = Vector2(0.715, 0.715)
+texture = ExtResource("2_qsogq")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 118.0
+offset_right = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport/SubViewport"]
+offset_left = 327.0
+offset_top = 40.0
+offset_right = 599.0
+offset_bottom = 63.0
+scale = Vector2(1.86, 1.86)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Philippines Police Department"
+label_settings = SubResource("LabelSettings_1ysx0")
+
+[node name="Label2" type="Label" parent="SubViewport/SubViewport"]
+z_index = 11
+offset_left = 454.99997
+offset_top = 115.0
+offset_right = 626.84265
+offset_bottom = 138.0
+scale = Vector2(1.495, 1.495)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Attempt to locate"
+label_settings = SubResource("LabelSettings_1ysx0")
+
+[node name="Label3" type="Label" parent="SubViewport/SubViewport"]
+z_index = 11
+offset_left = 358.0
+offset_top = 371.0
+offset_right = 677.0
+offset_bottom = 394.0
+scale = Vector2(1.495, 1.495)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "STATUS: Missing"
+label_settings = SubResource("LabelSettings_1ysx0")
+horizontal_alignment = 1
+
+[node name="PNP" type="TextureRect" parent="SubViewport/SubViewport"]
+offset_left = 162.0
+offset_top = 19.0
+offset_right = 260.0
+offset_bottom = 155.79167
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("4_nydpq")
+expand_mode = 1
+
+[node name="SHADER" type="ColorRect" parent="SubViewport/SubViewport"]
+z_index = 10
+material = SubResource("ShaderMaterial_r1fyo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_right = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Victim" type="TextureRect" parent="SubViewport/SubViewport"]
+offset_left = 486.99997
+offset_top = 143.0
+offset_right = 656.0
+offset_bottom = 355.0
+texture = ExtResource("6_qsogq")
+expand_mode = 1
+
+[node name="Desciption" type="Label" parent="SubViewport/SubViewport"]
+z_index = 10
+offset_left = 154.0
+offset_top = 424.00003
+offset_right = 884.0
+offset_bottom = 623.0
+scale = Vector2(1.2, 1.2)
+text = "Last seen near Gate 1 of the CVSU campus. All camera feeds from the area are corrupted. No physical evidence was recovered. The only lead is an audio anomaly of someone weeping at the scene. Case is recent; details are scarce. No active traces have been seen yet."
+label_settings = SubResource("LabelSettings_r1fyo")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

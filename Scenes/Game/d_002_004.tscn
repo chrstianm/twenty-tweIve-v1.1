@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://jire0cm7vcsx"]
+
+[ext_resource type="Script" uid="uid://baj33khys6aqy" path="res://Scenes/Scripts/d_002_004.gd" id="1_i0lx2"]
+[ext_resource type="Texture2D" uid="uid://bnoa86qnx4qu8" path="res://Assets/Digicam/DSC06900.JPG" id="1_nkuf0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0lx2"]
+size = Vector2(314.5, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7sc0"]
+size = Vector2(215.75, 130.5)
+
+[node name="d_002_004" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_i0lx2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_nkuf0")
+
+[node name="BACK" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BACK"]
+position = Vector2(599, 524)
+shape = SubResource("RectangleShape2D_i0lx2")
+debug_color = Color(0.66915, 0.38691995, 0.84936535, 0.41960785)
+
+[node name="Bush" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bush"]
+position = Vector2(589.125, 406)
+shape = SubResource("RectangleShape2D_o7sc0")
+
+[connection signal="input_event" from="BACK" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="BACK" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="BACK" to="." method="_on_back_mouse_exited"]
+[connection signal="input_event" from="Bush" to="." method="_on_bush_input_event"]
+[connection signal="mouse_entered" from="Bush" to="." method="_on_bush_mouse_entered"]
+[connection signal="mouse_exited" from="Bush" to="." method="_on_bush_mouse_exited"]

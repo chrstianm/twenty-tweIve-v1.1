@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://dml6jmrcw5fqe"]
+
+[ext_resource type="Script" uid="uid://cxfusmvvxuhtq" path="res://Scenes/Scripts/f_034_01.gd" id="1_kmxr7"]
+[ext_resource type="Texture2D" uid="uid://cp5fmic8ebxe0" path="res://Assets/Digicam/DSC06951.JPG" id="2_kmxr7"]
+[ext_resource type="Texture2D" uid="uid://b23hclra5pje2" path="res://Assets/Pictures/picture_asset.png" id="3_f1mlr"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="4_2u3wk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1mlr"]
+size = Vector2(144.25, 168.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u3wk"]
+size = Vector2(424, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1mlr"]
+radius = 27.073973
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfg6h"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="F034-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kmxr7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_kmxr7")
+
+[node name="forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forward"]
+position = Vector2(744, 359)
+shape = SubResource("RectangleShape2D_f1mlr")
+
+[node name="backward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backward"]
+position = Vector2(570, 533)
+shape = SubResource("RectangleShape2D_2u3wk")
+debug_color = Color(0.63604957, 0.37276283, 0.9404592, 0.41960785)
+
+[node name="PictureAsset" type="Sprite2D" parent="."]
+position = Vector2(309, 457.00003)
+rotation = 0.5846853
+scale = Vector2(0.0992857, 0.0992857)
+texture = ExtResource("3_f1mlr")
+
+[node name="picture" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="picture"]
+visible = false
+position = Vector2(309, 454)
+shape = SubResource("CircleShape2D_f1mlr")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 451.0
+offset_top = 321.0
+offset_right = 619.0
+offset_bottom = 344.0
+scale = Vector2(1.5, 1.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hfg6h")
+text = "you found a picture piece"
+label_settings = ExtResource("4_2u3wk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 241.0
+offset_top = 424.0
+offset_right = 338.0
+offset_bottom = 498.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="backward" to="." method="_on_backward_input_event"]
+[connection signal="mouse_entered" from="backward" to="." method="_on_backward_mouse_entered"]
+[connection signal="mouse_exited" from="backward" to="." method="_on_backward_mouse_exited"]
+[connection signal="input_event" from="picture" to="." method="_on_picture_input_event"]

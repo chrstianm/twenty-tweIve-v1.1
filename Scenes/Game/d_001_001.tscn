@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://ih6scvjr6wwm"]
+
+[ext_resource type="Script" uid="uid://d3v1cn1lpstlx" path="res://Scenes/Scripts/d_001_001.gd" id="1_g44l0"]
+[ext_resource type="Texture2D" uid="uid://dwn0jevyyygr2" path="res://Assets/Digicam/DSC06877.JPG" id="1_q5g3a"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_mxxb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g44l0"]
+size = Vector2(92, 117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxxb5"]
+size = Vector2(314.5, 36)
+
+[node name="d_001_001" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_g44l0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_q5g3a")
+
+[node name="Forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
+position = Vector2(509, 258)
+shape = SubResource("RectangleShape2D_g44l0")
+
+[node name="BACK" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BACK"]
+visible = false
+position = Vector2(599, 524)
+shape = SubResource("RectangleShape2D_mxxb5")
+debug_color = Color(0.66915, 0.38691995, 0.84936535, 0.41960785)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = ExtResource("3_mxxb5")
+
+[connection signal="input_event" from="Forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="Forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="Forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="BACK" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="BACK" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="BACK" to="." method="_on_back_mouse_exited"]

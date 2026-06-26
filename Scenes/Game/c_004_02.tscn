@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://jkwanryf03w"]
+
+[ext_resource type="Script" uid="uid://cpwu5lawpvgkq" path="res://Scenes/Scripts/c_004_02.gd" id="1_6q3ui"]
+[ext_resource type="Texture2D" uid="uid://dttxxugbafmy4" path="res://Assets/Digicam/DSC06868.JPG" id="1_cxxb2"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_gbigo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6q3ui"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7dsoq"]
+font = ExtResource("2_gbigo")
+font_size = 10
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6q3ui"]
+radius = 62.072536
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q3ui"]
+size = Vector2(314.5, 36)
+
+[node name="C004-02" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6q3ui")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_cxxb2")
+
+[node name="Wallet" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 480.0
+offset_top = 305.0
+offset_right = 578.421
+offset_bottom = 323.42105
+scale = Vector2(1.985, 1.985)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6q3ui")
+text = "المحفظة المفقودة"
+label_settings = SubResource("LabelSettings_7dsoq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="redact" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 467.0
+offset_top = 286.0
+offset_right = 638.0
+offset_bottom = 436.0
+color = Color(0, 0, 0, 1)
+
+[node name="Wallet2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wallet2"]
+position = Vector2(548, 367)
+shape = SubResource("CircleShape2D_6q3ui")
+
+[node name="BACK" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BACK"]
+position = Vector2(599, 524)
+shape = SubResource("RectangleShape2D_6q3ui")
+debug_color = Color(0.66915, 0.38691995, 0.84936535, 0.41960785)
+
+[connection signal="input_event" from="Wallet2" to="." method="_on_wallet_2_input_event"]
+[connection signal="mouse_entered" from="Wallet2" to="." method="_on_wallet_2_mouse_entered"]
+[connection signal="mouse_exited" from="Wallet2" to="." method="_on_wallet_2_mouse_exited"]
+[connection signal="input_event" from="BACK" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="BACK" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="BACK" to="." method="_on_back_mouse_exited"]

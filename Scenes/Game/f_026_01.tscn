@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7qxj305qdogh"]
+
+[ext_resource type="Script" uid="uid://d37mw6db15wcn" path="res://Scenes/Scripts/f_026_01.gd" id="1_4nwbe"]
+[ext_resource type="Texture2D" uid="uid://dep4l10o0lhqn" path="res://Assets/Digicam/DSC06938.JPG" id="2_mfu22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2nqp"]
+size = Vector2(158.25, 150.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1mp2"]
+size = Vector2(502, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nwbe"]
+size = Vector2(123, 141.5)
+
+[node name="F026-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4nwbe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_mfu22")
+
+[node name="forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forward"]
+position = Vector2(752, 314)
+shape = SubResource("RectangleShape2D_r2nqp")
+
+[node name="backward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="backward"]
+position = Vector2(579, 531)
+shape = SubResource("RectangleShape2D_y1mp2")
+debug_color = Color(0.6914795, 0.3074534, 0.9694144, 0.41960785)
+
+[node name="side" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="side"]
+position = Vector2(356, 317)
+shape = SubResource("RectangleShape2D_4nwbe")
+
+[connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="backward" to="." method="_on_backward_input_event"]
+[connection signal="mouse_entered" from="backward" to="." method="_on_backward_mouse_entered"]
+[connection signal="mouse_exited" from="backward" to="." method="_on_backward_mouse_exited"]
+[connection signal="input_event" from="side" to="." method="_on_side_input_event"]
+[connection signal="mouse_entered" from="side" to="." method="_on_side_mouse_entered"]
+[connection signal="mouse_exited" from="side" to="." method="_on_side_mouse_exited"]

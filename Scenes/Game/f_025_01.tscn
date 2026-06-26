@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://tvabi7s7t3hi"]
+
+[ext_resource type="Script" uid="uid://cy7c33istojgl" path="res://Scenes/Scripts/f_025_01.gd" id="1_fjddw"]
+[ext_resource type="Texture2D" uid="uid://c8u8ixtjd0uc7" path="res://Assets/Digicam/DSC06937.JPG" id="2_t7pa8"]
+[ext_resource type="Texture2D" uid="uid://bp7p6r8ovaouw" path="res://Assets/Pictures/Hide_And_Seek/Kiosk_HaS2.png" id="3_t7pa8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4p822"]
+size = Vector2(891.4285, 1117.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnojf"]
+size = Vector2(3281.4285, 174.99982)
+
+[node name="F025-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fjddw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_t7pa8")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("3_t7pa8")
+
+[node name="forward" type="Area2D" parent="."]
+position = Vector2(279, 91)
+scale = Vector2(0.14, 0.14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forward"]
+position = Vector2(3800, 1571.4287)
+shape = SubResource("RectangleShape2D_4p822")
+
+[node name="back" type="Area2D" parent="."]
+position = Vector2(279, 91)
+scale = Vector2(0.14, 0.14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="back"]
+position = Vector2(2185.714, 3158.9277)
+shape = SubResource("RectangleShape2D_tnojf")
+debug_color = Color(0.58515584, 0.3802484, 1, 0.41960785)
+
+[connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="back" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="back" to="." method="_on_back_mouse_exited"]

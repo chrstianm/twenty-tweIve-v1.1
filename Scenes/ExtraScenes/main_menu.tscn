@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8ylyl4q2ye2q"]
+
+[ext_resource type="Script" uid="uid://df0rtivaniia5" path="res://Scenes/ExtraScenes/Script/main_menu.gd" id="1_7na8m"]
+[ext_resource type="Shader" uid="uid://v7anflp3w6uj" path="res://Scenes/Intoduction_Clip/Shader/warp.gdshader" id="2_826nt"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_j8i6c"]
+[ext_resource type="Shader" uid="uid://fgvjrs21ucdq" path="res://Scenes/Intoduction_Clip/Shader/Archive-Shader.gdshader" id="4_826nt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j8i6c"]
+shader = ExtResource("2_826nt")
+shader_parameter/shake_power = 0.005
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 10.0
+shader_parameter/color_drift = 0.0005
+shader_parameter/curve_x = 0.1
+shader_parameter/curve_y = 0.1
+
+[sub_resource type="LabelSettings" id="LabelSettings_826nt"]
+font = ExtResource("3_j8i6c")
+font_size = 11
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7uut"]
+shader = ExtResource("4_826nt")
+shader_parameter/blur_amount = 1.5
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7na8m")
+
+[node name="SubViewport" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_j8i6c")
+layout_mode = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewport"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="SubViewport/SubViewport"]
+offset_left = 393.00003
+offset_top = 211.00002
+offset_right = 477.00003
+offset_bottom = 234.00002
+scale = Vector2(4.28, 4.28)
+text = "twenty-tweIve"
+label_settings = SubResource("LabelSettings_826nt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/SubViewport"]
+material = SubResource("ShaderMaterial_f7uut")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -6.0
+offset_right = 5.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="SubViewport/SubViewport"]
+offset_left = 540.0
+offset_top = 358.0
+offset_right = 581.0
+offset_bottom = 376.0
+scale = Vector2(2.765, 2.765)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_j8i6c")
+theme_override_font_sizes/font_size = 11
+text = "start"
+flat = true
+
+[node name="Button2" type="Button" parent="SubViewport/SubViewport"]
+offset_left = 495.0
+offset_top = 440.0
+offset_right = 568.0
+offset_bottom = 458.0
+scale = Vector2(2.765, 2.765)
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_j8i6c")
+theme_override_font_sizes/font_size = 11
+text = "eject game"
+flat = true
+
+[connection signal="pressed" from="SubViewport/SubViewport/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="SubViewport/SubViewport/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="toggled" from="SubViewport/SubViewport/Button2" to="." method="_on_button_2_toggled"]

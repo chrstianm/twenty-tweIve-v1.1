@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmdd4nhkl282o"]
+
+[ext_resource type="Script" uid="uid://magcp3ic2wdn" path="res://Scenes/Scripts/f_020_01.gd" id="1_aefhq"]
+[ext_resource type="Texture2D" uid="uid://duwdp3ixgkvvk" path="res://Assets/Digicam/DSC06932.JPG" id="2_aefhq"]
+[ext_resource type="Texture2D" uid="uid://rks7b77hdl71" path="res://Assets/Pictures/Victim3_3_-removebg-preview.png" id="3_wom3q"]
+[ext_resource type="Texture2D" uid="uid://bbmndaw72jke" path="res://Assets/Pictures/grab_hands.png" id="4_7jcu3"]
+[ext_resource type="Script" uid="uid://shq26l1fnu4v" path="res://Scenes/ExtraScenes/Script/grab_hands.gd" id="5_gwnn4"]
+[ext_resource type="Script" uid="uid://bh26d82ee7rbi" path="res://Scenes/ExtraScenes/Script/grab_hands_2.gd" id="6_x3txr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jcu3"]
+size = Vector2(115.75, 155.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwnn4"]
+size = Vector2(530, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aefhq"]
+size = Vector2(91.5, 186.5)
+
+[node name="F020-01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_aefhq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_aefhq")
+
+[node name="forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="forward"]
+position = Vector2(820, 294)
+shape = SubResource("RectangleShape2D_7jcu3")
+
+[node name="back" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="back"]
+position = Vector2(579, 533.5)
+shape = SubResource("RectangleShape2D_gwnn4")
+debug_color = Color(0.67601216, 0.3041773, 1, 0.41960785)
+
+[node name="windows" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="windows"]
+position = Vector2(352, 315)
+shape = SubResource("RectangleShape2D_aefhq")
+
+[node name="jumpscare" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 422.0
+offset_top = 90.0
+offset_right = 763.0
+offset_bottom = 547.0
+texture = ExtResource("3_wom3q")
+expand_mode = 1
+
+[node name="GrabHands" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-407.99997, 329.99997)
+rotation = 1.5707964
+scale = Vector2(2.0605485, 2.0605485)
+texture = ExtResource("4_7jcu3")
+script = ExtResource("5_gwnn4")
+
+[node name="GrabHands2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1557, 283.00003)
+rotation = -1.5707964
+scale = Vector2(2.0403657, 2.0403657)
+texture = ExtResource("4_7jcu3")
+script = ExtResource("6_x3txr")
+
+[connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
+[connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]
+[connection signal="mouse_exited" from="forward" to="." method="_on_forward_mouse_exited"]
+[connection signal="input_event" from="back" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="back" to="." method="_on_back_mouse_exited"]
+[connection signal="input_event" from="windows" to="." method="_on_windows_input_event"]
+[connection signal="mouse_entered" from="windows" to="." method="_on_windows_mouse_entered"]
+[connection signal="mouse_exited" from="windows" to="." method="_on_windows_mouse_exited"]

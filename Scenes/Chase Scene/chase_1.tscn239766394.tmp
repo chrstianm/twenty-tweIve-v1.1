@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://brk7fktfkqnue"]
+
+[ext_resource type="Script" uid="uid://bivg50qwhr0k" path="res://Scenes/Chase Scene/Script/chase_1.gd" id="1_kt8y2"]
+[ext_resource type="Texture2D" uid="uid://dsmem3qd14u0x" path="res://Assets/Digicam/DSC06974.JPG" id="2_45r2v"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_45r2v"]
+[ext_resource type="Script" uid="uid://vtalid8mc587" path="res://Scenes/Area2D_Scripts/Subliminal_Glitch.gd" id="4_a36ln"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a36ln"]
+radius = 121.0661
+
+[node name="chase1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kt8y2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("2_45r2v")
+
+[node name="Forward" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
+position = Vector2(567, 320)
+shape = SubResource("CircleShape2D_a36ln")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 353.99997
+offset_top = 205.99998
+offset_right = 393.99997
+offset_bottom = 228.99998
+scale = Vector2(24.005, 24.005)
+text = "RUN"
+label_settings = ExtResource("3_45r2v")
+
+[node name="GlitchLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="GlitchLayer" node_paths=PackedStringArray("camera")]
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_a36ln")
+camera = NodePath("../Camera2D")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="GlitchLayer"]
+position = Vector2(576, 324)
+
+[connection signal="input_event" from="Forward" to="." method="_on_forward_input_event"]

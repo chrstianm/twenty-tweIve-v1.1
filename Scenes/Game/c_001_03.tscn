@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://gblfjx5vomji"]
+
+[ext_resource type="Script" uid="uid://c08sabcxj1j82" path="res://Scenes/Scripts/c_001_03.gd" id="1_qi4da"]
+[ext_resource type="Texture2D" uid="uid://ddcg5ca6qiwa7" path="res://Assets/Digicam/DSC06862.JPG" id="1_upv8n"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_qi4da"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi4da"]
+size = Vector2(68, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf2rv"]
+size = Vector2(314.5, 28)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf2rv"]
+bg_color = Color(0.0018410675, 0.0018410685, 0.0018410663, 1)
+
+[node name="C001-03" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_qi4da")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -297.0
+offset_top = -233.0
+offset_right = 4023.0
+offset_bottom = 3007.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+mouse_filter = 2
+texture = ExtResource("1_upv8n")
+
+[node name="REDACT" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 495.0
+offset_top = 288.0
+offset_right = 694.0
+offset_bottom = 431.0
+color = Color(0, 0, 0, 1)
+
+[node name="Key" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key"]
+position = Vector2(578, 368)
+shape = SubResource("RectangleShape2D_qi4da")
+
+[node name="BACK" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BACK"]
+position = Vector2(599, 528)
+shape = SubResource("RectangleShape2D_qf2rv")
+debug_color = Color(0.66915, 0.38691995, 0.84936535, 0.41960785)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 525.00006
+offset_top = 289.0
+offset_right = 672.00006
+offset_bottom = 312.0
+scale = Vector2(1.595, 1.595)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qf2rv")
+text = "you picked up a rusty key"
+label_settings = ExtResource("3_qi4da")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="Key" to="." method="_on_key_input_event"]
+[connection signal="input_event" from="BACK" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="BACK" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="BACK" to="." method="_on_back_mouse_exited"]
