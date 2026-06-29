@@ -26,6 +26,9 @@ func start_dynamic_glitch():
 		
 		# Wait for a very short frame (the "0.2ms" feel)
 		await get_tree().create_timer(0.01).timeout
+		
+		if SuspenseTimer.TIMER == true:
+			stop_dynamic_glitch()
 
 func stop_dynamic_glitch():
 	is_glitching = false

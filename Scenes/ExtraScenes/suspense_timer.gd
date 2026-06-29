@@ -3,7 +3,10 @@ extends CanvasLayer
 signal condition_met
 signal time_ran_out
 
-@onready var label: Label = $CenterContainer/Label
+var TIMER = false
+@onready var label: Label = $CenterContainer/Timer
+@onready var final: Label = $fail
+@onready var god: Label = $Label2
 
 # Change this in the inspector or code to set the default timer duration
 @export var wait_time: float = 90.0 
@@ -16,6 +19,7 @@ var base_label_position: Vector2
 var glitch_characters: String = "0123456789!@#$%&*?X"
 
 func _ready() -> void:
+	final.hide()
 	hide()
 	call_deferred("_capture_base_position")
 
@@ -51,12 +55,18 @@ func _process(delta: float) -> void:
 	if time_left <= 0.0:
 		time_left = 0.0
 		is_running = false
-		hide()
 		time_ran_out.emit()
 		set_process(false)
 		print("FAILURE: Time ran out!")
+		TIMER = true
 		AudioManager.stop_all_bgm()
-		get_tree().change_scene_to_file("res://Scenes/Chase Scene/chase_1.tscn")
+		AudioManager.stop_all_sfx()
+		label.hide()
+		god.hide()
+		final.show()
+		await get_tree().create_timer(1.5).timeout
+		hide()
+		get_tree().change_scene_to_file("res://Scenes/ExtraScenes/police_report4.tscn")
 		return
 
 	_update_ui()

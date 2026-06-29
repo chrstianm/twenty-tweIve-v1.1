@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bevkhs0t0cfm0" path="res://Scenes/Chase Scene/Script/glitch.gd" id="4_lvx6i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0oqll"]
-radius = 42.059483
+radius = 56.718605
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddsw1"]
 bg_color = Color(0, 0, 0, 1)

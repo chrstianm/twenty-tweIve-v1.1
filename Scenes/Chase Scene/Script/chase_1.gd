@@ -9,6 +9,7 @@ func _ready() -> void:
 	InventoryUi.hide()
 	glitchy_overlay.start_dynamic_glitch()
 	AudioManager.play_bgm("runrabbit")
+	AudioManager.play_bgm("heartbeat")
 	CursorManager.set_normal()
 	text.show()
 	await get_tree().create_timer(0.3).timeout

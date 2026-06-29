@@ -19,7 +19,8 @@ var music_tracks = {
 	"testimony": preload("res://Assets/Audio/Audio_Intro/testimony.MP3"),
 	"runrabbit": preload("res://Assets/Audio/run_rabbit(20db).MP3"),
 	"ending": preload("res://Assets/Audio/ending(20db).MP3"),
-	"run": preload("res://Assets/Audio/copy_EC47487F-7632-4861-8E5A-802AD11A2B28.mp3")
+	"run": preload("res://Assets/Audio/copy_EC47487F-7632-4861-8E5A-802AD11A2B28.mp3"),
+	"heartbeat": preload("res://Assets/Audio/hearbeat.MP3")
 }
 
 var sfx_sounds = {

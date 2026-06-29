@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2mu3saob6gd3"]
+[gd_scene load_steps=5 format=3 uid="uid://c2mu3saob6gd3"]
 
 [ext_resource type="Script" uid="uid://3qg36bl8cu80" path="res://Scenes/ExtraScenes/suspense_timer.gd" id="1_3xgy2"]
 [ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="1_7utye"]
 [ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_5ba50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ba50"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="SuspenseTimer" type="CanvasLayer"]
 script = ExtResource("1_3xgy2")
@@ -11,26 +14,39 @@ script = ExtResource("1_3xgy2")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3309.0
-offset_top = -1863.0
-offset_right = -3309.0
-offset_bottom = -1863.0
+offset_left = -3669.0002
+offset_top = -2095.0
+offset_right = -3669.0002
+offset_bottom = -2095.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(6.725, 6.725)
+scale = Vector2(7.37, 7.37)
 
-[node name="Label" type="Label" parent="CenterContainer"]
+[node name="Timer" type="Label" parent="CenterContainer"]
 layout_mode = 2
 text = "01:00:00"
 label_settings = ExtResource("1_7utye")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 390.0
+offset_left = 433.00003
 offset_top = 564.0
-offset_right = 503.0
+offset_right = 546.0
 offset_bottom = 579.0
-scale = Vector2(3.42, 3.42)
+scale = Vector2(2.64, 2.64)
 theme_override_colors/font_color = Color(0.6156863, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_5ba50")
 theme_override_font_sizes/font_size = 14
 text = "god is coming"
+
+[node name="fail" type="Label" parent="."]
+z_index = 100
+offset_left = 284.0
+offset_top = 266.0
+offset_right = 499.24823
+offset_bottom = 285.46625
+scale = Vector2(2.82, 2.82)
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ba50")
+text = "you're stuck here with me"
+label_settings = ExtResource("1_7utye")
+horizontal_alignment = 1
+vertical_alignment = 1

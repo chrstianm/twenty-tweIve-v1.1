@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bevkhs0t0cfm0" path="res://Scenes/Chase Scene/Script/glitch.gd" id="3_hpndr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0oqll"]
-radius = 51.41984
+radius = 61.39218
 
 [node name="chase11" type="Control"]
 layout_mode = 3

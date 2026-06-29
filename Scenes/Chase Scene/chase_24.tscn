@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bevkhs0t0cfm0" path="res://Scenes/Chase Scene/Script/glitch.gd" id="3_ht6ll"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0oqll"]
-radius = 43.104523
+radius = 49.0
 
 [node name="chase24" type="Control"]
 layout_mode = 3
@@ -47,7 +47,7 @@ texture = ExtResource("2_ht6ll")
 [node name="Forward" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Forward"]
-position = Vector2(772, 489)
+position = Vector2(773, 475)
 shape = SubResource("CircleShape2D_0oqll")
 
 [node name="GlitchLayer" type="CanvasLayer" parent="."]
