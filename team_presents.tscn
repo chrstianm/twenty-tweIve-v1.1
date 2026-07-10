@@ -33,13 +33,11 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Label" type="Label" parent="SubViewport/SubViewport"]
-offset_left = 314.0
-offset_top = 292.0
-offset_right = 525.0
-offset_bottom = 325.0
-scale = Vector2(2.345, 2.345)
-text = "kabsulekainero gen alpha team
-presents
-"
+offset_left = 322.0
+offset_top = 276.0
+offset_right = 612.02844
+offset_bottom = 321.0
+scale = Vector2(1.755, 1.755)
+text = "1JpL5jn10aZf2_65MLOgbRVE-QTaMawZ0"
 label_settings = ExtResource("2_65n60")
 horizontal_alignment = 1

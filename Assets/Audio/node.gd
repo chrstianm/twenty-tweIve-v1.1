@@ -41,7 +41,7 @@ var sfx_sounds = {
 	"gate_open": preload("res://Assets/Audio/cr_opening.MP3"),
 	"telephone_convo": preload("res://Assets/Audio/telephone_convo(1).MP3"),
 	"footstep": preload("res://Assets/Audio/corridor_footstep.MP3"),
-	"flashlight": preload("res://Assets/Audio/flashlight_on.MP3"),
+	"flashlight": preload("res://Assets/Audio/flashlight.MP3"),
 	"scream": preload("res://Assets/Audio/cutoff_scream.MP3"),
 	"testimony": preload("res://Assets/Audio/testimony (20db).MP3"),
 	"pick_up": preload("res://Assets/Audio/Audio_Intro/pick_up_call.MP3")

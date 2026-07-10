@@ -13,10 +13,11 @@ func _on_forward_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			GlobalManager.scene_count += 1
 			if GlobalManager.scene_count >= 12:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				area.hide()
 				AudioManager.play_sfx("flashlight")
-				await get_tree().create_timer(4.5).timeout
-				get_tree().change_scene_to_file("res://Scenes/Game/d_001_001.tscn")
+				await get_tree().create_timer(9).timeout
+				SceneChanger.change_scene("res://Scenes/Game/d_001_001.tscn")
 			else:
 				AudioManager.play_sfx("click")
 				get_tree().change_scene_to_file("res://Scenes/Dim_Scene/dim_1.tscn")
