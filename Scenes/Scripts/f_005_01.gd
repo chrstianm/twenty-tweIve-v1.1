@@ -7,7 +7,9 @@ func _ready() -> void:
 	if GlobalManager.text_hazy == 0:
 		collision.hide()
 		text.show()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		await get_tree().create_timer(2.5).timeout
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		text.hide()
 		collision.show()
 		GlobalManager.text_hazy = 1

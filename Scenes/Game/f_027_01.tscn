@@ -73,13 +73,12 @@ position = Vector2(720, 282)
 shape = SubResource("RectangleShape2D_3eg3n")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 455.0
 offset_top = 303.0
-offset_right = 630.91974
-offset_bottom = 326.0
-scale = Vector2(1.495, 1.495)
+offset_right = 684.0322
+offset_bottom = 340.09677
+scale = Vector2(1.24, 1.24)
 theme_override_styles/normal = SubResource("StyleBoxFlat_37ww8")
 text = "you found the building key"
 label_settings = ExtResource("3_iviyb")

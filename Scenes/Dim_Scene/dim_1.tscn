@@ -59,11 +59,11 @@ texture = ExtResource("1_pqydi")
 [node name="Label" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 291.0
-offset_top = 276.0
-offset_right = 581.0
-offset_bottom = 314.5
-scale = Vector2(2, 2)
+offset_left = 299.00003
+offset_top = 289.0
+offset_right = 715.5
+offset_bottom = 350.0
+scale = Vector2(1.345, 1.345)
 theme_override_styles/normal = SubResource("StyleBoxFlat_c776m")
 text = "as you start to navigate, your flashlight turned 
 off. you take each step cautiously as he
@@ -71,15 +71,16 @@ might be following."
 label_settings = ExtResource("2_2ybhu")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 347.0
-offset_top = 293.0
-offset_right = 582.0
-offset_bottom = 316.0
-scale = Vector2(2, 2)
+offset_left = 341.00003
+offset_top = 312.00003
+offset_right = 670.0
+offset_bottom = 335.00003
+scale = Vector2(1.45, 1.45)
 theme_override_styles/normal = SubResource("StyleBoxFlat_jvgm3")
 text = "if you hear him, stop moving. he's near."
 label_settings = ExtResource("2_2ybhu")
@@ -97,11 +98,11 @@ shape = SubResource("RectangleShape2D_ssegw")
 [node name="Label3" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 465.99997
-offset_top = 274.99997
-offset_right = 519.0
-offset_bottom = 297.99997
-scale = Vector2(4.365, 4.365)
+offset_left = 333.00003
+offset_top = 242.0
+offset_right = 407.00003
+offset_bottom = 265.0
+scale = Vector2(6.725, 6.725)
 text = "DONT MOVE"
 label_settings = ExtResource("2_2ybhu")
 horizontal_alignment = 1
@@ -120,11 +121,11 @@ stream = ExtResource("4_jvgm3")
 [node name="Label4" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 353.0
-offset_top = 283.0
-offset_right = 518.0
-offset_bottom = 306.0
-scale = Vector2(2.805, 2.805)
+offset_left = 396.0
+offset_top = 297.0
+offset_right = 626.0
+offset_bottom = 320.0
+scale = Vector2(2.44, 2.44)
 theme_override_styles/normal = SubResource("StyleBoxFlat_ssegw")
 text = "you shouldn't have done that"
 label_settings = ExtResource("2_2ybhu")

@@ -28,11 +28,12 @@ text = "01:00:00"
 label_settings = ExtResource("1_7utye")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 433.00003
-offset_top = 564.0
-offset_right = 546.0
-offset_bottom = 579.0
-scale = Vector2(2.64, 2.64)
+visible = false
+offset_left = 463.0
+offset_top = 546.0
+offset_right = 576.0
+offset_bottom = 561.0
+scale = Vector2(2.265, 2.265)
 theme_override_colors/font_color = Color(0.6156863, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_5ba50")
 theme_override_font_sizes/font_size = 14
@@ -41,9 +42,9 @@ text = "god is coming"
 [node name="fail" type="Label" parent="."]
 z_index = 100
 offset_left = 284.0
-offset_top = 266.0
-offset_right = 499.24823
-offset_bottom = 285.46625
+offset_top = 271.00003
+offset_right = 493.57446
+offset_bottom = 288.69324
 scale = Vector2(2.82, 2.82)
 theme_override_styles/normal = SubResource("StyleBoxFlat_5ba50")
 text = "you're stuck here with me"

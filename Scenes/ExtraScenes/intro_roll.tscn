@@ -34,20 +34,20 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Label" type="Label" parent="SubViewport/SubViewport"]
-offset_left = 354.0
-offset_top = 284.99997
-offset_right = 565.0
-offset_bottom = 307.99997
+offset_left = 274.0
+offset_top = 283.0
+offset_right = 570.0
+offset_bottom = 312.0
 scale = Vector2(2.12, 2.12)
 text = "Wear earphones for better experience
 "
 label_settings = ExtResource("3_5rduw")
 
 [node name="TextureRect" type="TextureRect" parent="SubViewport/SubViewport"]
-offset_left = 551.0
-offset_top = 348.0
-offset_right = 576.3164
-offset_bottom = 369.09705
+offset_left = 569.0
+offset_top = 346.0
+offset_right = 594.3164
+offset_bottom = 367.09705
 scale = Vector2(2.12, 2.12)
 texture = ExtResource("3_nrx8c")
 expand_mode = 1

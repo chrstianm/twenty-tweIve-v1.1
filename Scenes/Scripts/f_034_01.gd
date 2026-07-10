@@ -36,10 +36,12 @@ func _on_picture_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if GlobalManager.is_picture2_picked_up == false:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				AudioManager.play_sfx("click")
 				text.show()
 				area.hide()
-				await get_tree().create_timer(3.0).timeout
+				await get_tree().create_timer(1.3).timeout
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				text.hide()
 				redact.show()
 				Inventory.add_item("picture piece 2")

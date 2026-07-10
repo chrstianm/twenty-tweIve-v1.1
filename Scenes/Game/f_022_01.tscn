@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c48xryudv52yw"]
+[gd_scene load_steps=8 format=3 uid="uid://c48xryudv52yw"]
 
 [ext_resource type="Script" uid="uid://bp5iy1lpxnpwu" path="res://Scenes/Scripts/f_022_01.gd" id="1_yc0c0"]
 [ext_resource type="Texture2D" uid="uid://cptlsrjsm07mw" path="res://Assets/Digicam/DSC06934.JPG" id="2_1lonn"]
 [ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_1lonn"]
-[ext_resource type="Texture2D" uid="uid://cgjwaetvmo6jb" path="res://Assets/Pictures/silhouette_f_022_01.png" id="4_vfb8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfb8b"]
 size = Vector2(58, 29)
@@ -90,18 +89,6 @@ text = "you found a picture piece"
 label_settings = SubResource("LabelSettings_j8ita")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="entity" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 508.0
-offset_top = 253.0
-offset_right = 649.84595
-offset_bottom = 348.94635
-rotation = 3.4739063
-scale = Vector2(1.0589913, 0.9178388)
-texture = ExtResource("4_vfb8b")
-expand_mode = 1
 
 [connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
 [connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]

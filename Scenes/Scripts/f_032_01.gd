@@ -19,13 +19,15 @@ func _on_forward_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if GlobalManager.is_chuckie_picked_up == false:
 				CursorManager.set_normal()
 				AudioManager.play_sfx("click")
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				chuckie.show()
 				area.hide()
 				await get_tree().create_timer(2.0).timeout
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				chuckie.hide()
 				redact.show()
 				GlobalManager.is_chuckie_picked_up = true
-				Inventory.add_item("chuckie")
+				Inventory.add_item("jeth's drink")
 			else:
 				pass
 			

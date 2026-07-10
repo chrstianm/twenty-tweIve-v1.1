@@ -83,11 +83,11 @@ shape = SubResource("CircleShape2D_f1mlr")
 [node name="Label" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 451.0
-offset_top = 321.0
-offset_right = 619.0
-offset_bottom = 344.0
-scale = Vector2(1.5, 1.5)
+offset_left = 413.00003
+offset_top = 333.0
+offset_right = 633.97375
+offset_bottom = 366.7079
+scale = Vector2(1.335, 1.335)
 theme_override_styles/normal = SubResource("StyleBoxFlat_hfg6h")
 text = "you found a picture piece"
 label_settings = ExtResource("4_2u3wk")

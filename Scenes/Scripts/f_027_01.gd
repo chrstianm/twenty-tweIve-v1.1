@@ -37,11 +37,13 @@ func _on_door_key_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 			if GlobalManager.is_door_key_picked_up == false:
 				CursorManager.set_normal()
 				AudioManager.play_sfx("click")
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				area.hide()
 				text.show()
 				forward.hide()
 				back.hide()
 				await get_tree().create_timer(3.0).timeout
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				text.hide()
 				redact.show()
 				forward.show()

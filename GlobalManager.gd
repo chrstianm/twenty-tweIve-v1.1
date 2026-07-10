@@ -7,6 +7,7 @@ var is_key_picked_up = 0
 var is_wallet_picked_up = false
 var is_picture_picked_up = false
 var is_picture2_picked_up = false
+var is_picture3_picked_up = false
 var is_picture5_picked_up = false
 var is_bottle_picked_up = false
 var is_id_picked_up = false
@@ -21,3 +22,5 @@ var is_evidence_picked_up = false
 # For the DIM porgression
 var text_scene = false
 var scene_count = 0
+# Extra Conditions
+var count = 0

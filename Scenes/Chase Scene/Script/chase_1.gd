@@ -24,7 +24,6 @@ func _ready() -> void:
 	text.hide()
 	area.show()
 
-	
 
 func _on_forward_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:

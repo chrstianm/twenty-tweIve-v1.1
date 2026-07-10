@@ -78,11 +78,11 @@ shape = SubResource("RectangleShape2D_ivpj1")
 [node name="Label" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 412.0
-offset_top = 318.0
-offset_right = 602.5237
-offset_bottom = 341.0
-scale = Vector2(2.005, 2.005)
+offset_left = 445.00003
+offset_top = 335.0
+offset_right = 695.74634
+offset_bottom = 369.02985
+scale = Vector2(1.675, 1.675)
 theme_override_styles/normal = SubResource("StyleBoxFlat_dqhq5")
 text = "i wonder where i can use this"
 label_settings = ExtResource("3_gmxah")

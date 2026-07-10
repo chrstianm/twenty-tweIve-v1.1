@@ -75,11 +75,11 @@ color = Color(0, 0, 0, 1)
 [node name="Label" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 468.0
-offset_top = 292.0
-offset_right = 591.702
-offset_bottom = 315.0
-scale = Vector2(2.215, 2.215)
+offset_left = 488.0
+offset_top = 311.00003
+offset_right = 641.54834
+offset_bottom = 342.6129
+scale = Vector2(1.55, 1.55)
 theme_override_styles/normal = SubResource("StyleBoxFlat_7vgxr")
 text = "why isthis her e?"
 label_settings = ExtResource("3_2qyyp")

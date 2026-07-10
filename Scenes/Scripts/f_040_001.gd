@@ -31,6 +31,7 @@ func _on_forward_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if Inventory.has_item("building key"):
 				if Inventory.has_item("picture piece 1") and Inventory.has_item("picture piece 2"):
 					CursorManager.set_normal()
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 					AudioManager.play_sfx("gate_open")
 					door.hide()
 					back.hide()
@@ -38,18 +39,22 @@ func _on_forward_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					SceneChanger.change_scene("res://Scenes/ExtraScenes/cut_scene_door.tscn")
 				else:
 					CursorManager.set_normal()
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 					AudioManager.play_sfx("door_knock")
 					picture_text.show()
 					door.hide()
-					await get_tree().create_timer(3.0).timeout
+					await get_tree().create_timer(1.5).timeout
+					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 					door.show()
 					picture_text.hide()
 			else:
 				CursorManager.set_normal()
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				AudioManager.play_sfx("door_knock")
 				door_text.show()
 				door.hide()
-				await get_tree().create_timer(3.0).timeout
+				await get_tree().create_timer(1.5).timeout
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				door.show()
 				door_text.hide()
 			

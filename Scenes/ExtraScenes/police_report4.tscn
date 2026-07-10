@@ -110,19 +110,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Victim" type="TextureRect" parent="SubViewport/SubViewport"]
-offset_left = 486.99997
+offset_left = 498.0
 offset_top = 143.0
-offset_right = 656.0
+offset_right = 667.0
 offset_bottom = 355.0
 texture = ExtResource("6_qsogq")
 expand_mode = 1
 
 [node name="Desciption" type="Label" parent="SubViewport/SubViewport"]
 z_index = 10
-offset_left = 154.0
-offset_top = 424.00003
-offset_right = 884.0
-offset_bottom = 623.0
+offset_left = 298.0
+offset_top = 418.00003
+offset_right = 789.6666
+offset_bottom = 547.1666
 scale = Vector2(1.2, 1.2)
 text = "Last seen near Gate 1 of the CVSU campus. All camera feeds from the area are corrupted. No physical evidence was recovered. The only lead is an audio anomaly of someone weeping at the scene. Case is recent; details are scarce. No active traces have been seen yet."
 label_settings = SubResource("LabelSettings_r1fyo")

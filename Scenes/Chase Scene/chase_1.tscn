@@ -53,16 +53,15 @@ shape = SubResource("CircleShape2D_a36ln")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 279.00003
-offset_top = 128.00002
-offset_right = 319.00003
-offset_bottom = 151.00002
-scale = Vector2(24.005, 24.005)
+offset_left = 351.0
+offset_top = 189.0
+offset_right = 391.0
+offset_bottom = 212.0
+scale = Vector2(17.65, 17.65)
 text = "RUN"
 label_settings = ExtResource("3_45r2v")
 
 [node name="GlitchLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="GlitchLayer" node_paths=PackedStringArray("camera")]
 z_index = 10

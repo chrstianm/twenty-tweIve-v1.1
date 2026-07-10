@@ -38,12 +38,14 @@ func _on_forward_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if is_instance_valid(current_audio) and current_audio.playing:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				AudioManager.play_sfx("click")
 				AudioManager.stop_all_sfx()
 				GlobalManager.scene_count = 0
 				area.hide()
 				jumpscare.play()
 				jumpscare.finished.connect(_on_video_finished)
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			else:
 				CursorManager.set_normal()
 				GlobalManager.scene_count += 1
