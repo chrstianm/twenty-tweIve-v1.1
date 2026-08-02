@@ -19,8 +19,14 @@ var is_vm_triggered = false
 var is_door_key_picked_up = false
 var is_code = false
 var is_evidence_picked_up = false
+var is_ending_triggered = false
 # For the DIM porgression
 var text_scene = false
 var scene_count = 0
 # Extra Conditions
 var count = 0
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("exit"):
+		get_tree().quit()

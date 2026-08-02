@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://817m27gwot4r"]
+
+[ext_resource type="Script" uid="uid://cwakeiay82svp" path="res://Scenes/Window/hack_manager.gd" id="1_1qgle"]
+[ext_resource type="PackedScene" uid="uid://dlisc0adafvrf" path="res://Scenes/Window/popup_window.tscn" id="2_k20gq"]
+[ext_resource type="PackedScene" uid="uid://c5j8ttkhv82tm" path="res://Scenes/Intoduction_Clip/blue_Screen.tscn" id="3_yqgb4"]
+[ext_resource type="Texture2D" uid="uid://bgolny6sm5hlw" path="res://Assets/Pictures/victimd/victim1.png" id="4_err2r"]
+[ext_resource type="Texture2D" uid="uid://dku2hfysqvhr0" path="res://Assets/Pictures/victimd/scp106.jpeg" id="5_55bgo"]
+
+[node name="HackManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1qgle")
+popup_scene = ExtResource("2_k20gq")
+final_scene = ExtResource("3_yqgb4")
+standard_photo = ExtResource("4_err2r")
+final_photo = ExtResource("5_55bgo")

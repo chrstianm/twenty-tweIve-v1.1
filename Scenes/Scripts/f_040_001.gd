@@ -36,7 +36,7 @@ func _on_forward_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					door.hide()
 					back.hide()
 					await get_tree().create_timer(1.0).timeout
-					SceneChanger.change_scene("res://Scenes/ExtraScenes/cut_scene_door.tscn")
+					SceneChanger.change_scene("res://Scenes/Dim_Scene/Hallway/hallway_dim.tscn")
 				else:
 					CursorManager.set_normal()
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

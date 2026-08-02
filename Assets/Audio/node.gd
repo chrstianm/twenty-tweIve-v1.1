@@ -26,7 +26,7 @@ var music_tracks = {
 var sfx_sounds = {
 	"type": preload("res://Assets/Audio/keyboard_click.MP3"),
 	"whispers": preload("res://Assets/Audio/Sighting_Sound(1).MP3"),
-	"click" : preload("res://Assets/Audio/mouse_click.mp3"),
+	"click" : preload("res://Assets/Audio/NEW-CLICK.MP3"),
 	"ill_find_you": preload("res://Assets/Audio/ill_find_you(1).MP3"),
 	"bush": preload("res://Assets/Audio/bush_sounds.MP3"),
 	"subtle_bush": preload("res://Assets/Audio/subtle_bush.MP3"),
@@ -44,7 +44,8 @@ var sfx_sounds = {
 	"flashlight": preload("res://Assets/Audio/flashlight.MP3"),
 	"scream": preload("res://Assets/Audio/cutoff_scream.MP3"),
 	"testimony": preload("res://Assets/Audio/testimony (20db).MP3"),
-	"pick_up": preload("res://Assets/Audio/Audio_Intro/pick_up_call.MP3")
+	"pick_up": preload("res://Assets/Audio/Audio_Intro/pick_up_call.MP3"),
+	"door-hallway": preload("res://Assets/Audio/opening_door.mp3")
 
 }
 

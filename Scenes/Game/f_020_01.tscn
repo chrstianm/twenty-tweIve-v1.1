@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmdd4nhkl282o"]
+[gd_scene load_steps=11 format=3 uid="uid://bmdd4nhkl282o"]
 
 [ext_resource type="Script" uid="uid://magcp3ic2wdn" path="res://Scenes/Scripts/f_020_01.gd" id="1_aefhq"]
 [ext_resource type="Texture2D" uid="uid://duwdp3ixgkvvk" path="res://Assets/Digicam/DSC06932.JPG" id="2_aefhq"]
 [ext_resource type="Texture2D" uid="uid://rks7b77hdl71" path="res://Assets/Pictures/Victim3_3_-removebg-preview.png" id="3_wom3q"]
 [ext_resource type="Texture2D" uid="uid://bbmndaw72jke" path="res://Assets/Pictures/grab_hands.png" id="4_7jcu3"]
 [ext_resource type="Script" uid="uid://shq26l1fnu4v" path="res://Scenes/ExtraScenes/Script/grab_hands.gd" id="5_gwnn4"]
+[ext_resource type="Script" uid="uid://cookfgtnnydr5" path="res://Scenes/Game/jumpscare_layer.gd" id="6_5e8eh"]
 [ext_resource type="Script" uid="uid://bh26d82ee7rbi" path="res://Scenes/ExtraScenes/Script/grab_hands_2.gd" id="6_x3txr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jcu3"]
@@ -72,16 +73,6 @@ debug_color = Color(0.67601216, 0.3041773, 1, 0.41960785)
 position = Vector2(352, 315)
 shape = SubResource("RectangleShape2D_aefhq")
 
-[node name="jumpscare" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 422.0
-offset_top = 90.0
-offset_right = 763.0
-offset_bottom = 547.0
-texture = ExtResource("3_wom3q")
-expand_mode = 1
-
 [node name="GrabHands" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-407.99997, 329.99997)
@@ -97,6 +88,25 @@ rotation = -1.5707964
 scale = Vector2(2.0403657, 2.0403657)
 texture = ExtResource("4_7jcu3")
 script = ExtResource("6_x3txr")
+
+[node name="JumpscareLayer" type="CanvasLayer" parent="."]
+script = ExtResource("6_5e8eh")
+
+[node name="jumpscare" type="TextureRect" parent="JumpscareLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.5
+offset_top = -228.5
+offset_right = 170.5
+offset_bottom = 228.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1500, 0)
+texture = ExtResource("3_wom3q")
+expand_mode = 1
 
 [connection signal="input_event" from="forward" to="." method="_on_forward_input_event"]
 [connection signal="mouse_entered" from="forward" to="." method="_on_forward_mouse_entered"]

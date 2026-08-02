@@ -13,6 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_gm26h")
 
 [node name="BlueScreen" type="Sprite2D" parent="."]
-position = Vector2(585.9432, 327.19788)
-scale = Vector2(0.45688632, 0.46500298)
+position = Vector2(583.9601, 325.4047)
+scale = Vector2(0.30262497, 0.2959215)
 texture = ExtResource("1_d7a3e")

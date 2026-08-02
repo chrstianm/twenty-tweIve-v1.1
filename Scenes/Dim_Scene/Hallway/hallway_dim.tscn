@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://h7q3bf6xmfwi"]
+
+[ext_resource type="Script" uid="uid://bk8n4akyxdpmb" path="res://Scenes/Dim_Scene/Hallway/hallway_dim.gd" id="1_ix84c"]
+[ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="2_fnijc"]
+[ext_resource type="Script" uid="uid://baxqx6qhgsjqe" path="res://Scenes/Dim_Scene/Hallway/label.gd" id="3_1hqqb"]
+[ext_resource type="Texture2D" uid="uid://ct7kymvgr0ulr" path="res://Assets/Cursor/arrow.png" id="3_fnijc"]
+
+[node name="HallwayDim" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ix84c")
+
+[node name="Label" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 319.0
+offset_top = 253.0
+offset_right = 677.07556
+offset_bottom = 338.22336
+scale = Vector2(1.455, 1.455)
+theme_override_fonts/normal_font = ExtResource("2_fnijc")
+bbcode_enabled = true
+text = "The whole corridor is full of corroded walls. You wander around the
+[pulse freq=10.0 color=#ffffff44 height=1.0]𝐇𝐚𝐥𝐥𝐰𝐚𝐲𝐬[/pulse]"
+autowrap_trim_flags = 128
+script = ExtResource("3_1hqqb")
+
+[node name="left" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 289.0
+offset_right = 870.0
+offset_bottom = 836.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_fnijc")
+
+[node name="right" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 834.0
+offset_top = 430.0
+offset_right = 1396.0
+offset_bottom = 977.0
+rotation = 3.1415927
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_fnijc")

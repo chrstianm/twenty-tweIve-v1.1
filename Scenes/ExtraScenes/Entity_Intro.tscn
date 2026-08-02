@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_5ljlu")
 
 [node name="Victim" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 472.0
 offset_top = 136.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8ylyl4q2ye2q"]
+[gd_scene load_steps=9 format=3 uid="uid://c8ylyl4q2ye2q"]
 
 [ext_resource type="Script" uid="uid://df0rtivaniia5" path="res://Scenes/ExtraScenes/Script/main_menu.gd" id="1_7na8m"]
 [ext_resource type="Shader" uid="uid://v7anflp3w6uj" path="res://Scenes/Intoduction_Clip/Shader/warp.gdshader" id="2_826nt"]
 [ext_resource type="FontFile" uid="uid://bnnhj8xv7cg1" path="res://Assets/Font/VCR_OSD_MONO_1.001.ttf" id="3_j8i6c"]
 [ext_resource type="Shader" uid="uid://fgvjrs21ucdq" path="res://Scenes/Intoduction_Clip/Shader/Archive-Shader.gdshader" id="4_826nt"]
+[ext_resource type="PackedScene" uid="uid://817m27gwot4r" path="res://Scenes/Window/hack_manager.tscn" id="5_f7uut"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j8i6c"]
 shader = ExtResource("2_826nt")
@@ -87,6 +88,18 @@ theme_override_fonts/font = ExtResource("3_j8i6c")
 theme_override_font_sizes/font_size = 11
 text = "eject game"
 flat = true
+
+[node name="HackManager" parent="SubViewport/SubViewport" node_paths=PackedStringArray("bounds_node") instance=ExtResource("5_f7uut")]
+bounds_node = NodePath("../CanvasLayer/SpawnBounds")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport/SubViewport"]
+
+[node name="SpawnBounds" type="ReferenceRect" parent="SubViewport/SubViewport/CanvasLayer"]
+offset_left = -11.0
+offset_top = -8.0
+offset_right = 1171.0
+offset_bottom = 662.0
+mouse_filter = 2
 
 [connection signal="pressed" from="SubViewport/SubViewport/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="SubViewport/SubViewport/Button2" to="." method="_on_button_2_pressed"]

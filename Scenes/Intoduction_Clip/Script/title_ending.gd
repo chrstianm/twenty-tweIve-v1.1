@@ -1,6 +1,7 @@
 extends Control
 
 func _ready() -> void:
+	GlobalManager.is_ending_triggered = true
 	InventoryUi.hide()
 	await get_tree().create_timer(14).timeout
 	AudioManager.stop_all_bgm()

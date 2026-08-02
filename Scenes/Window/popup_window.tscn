@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlisc0adafvrf"]
+
+[ext_resource type="Script" uid="uid://bdidwy0m2anuu" path="res://Scenes/Window/popup_window.gd" id="1_73icd"]
+[ext_resource type="Texture2D" uid="uid://bldglpxfo3vpm" path="res://Assets/Pictures/base2.jpg" id="2_73icd"]
+[ext_resource type="LabelSettings" uid="uid://ijr2ruqji7tl" path="res://label_popup_settings.tres" id="3_vs37g"]
+
+[node name="PopupWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 200.0
+script = ExtResource("1_73icd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_73icd")
+expand_mode = 3
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 4.0
+offset_right = 300.0
+offset_bottom = 35.0
+focus_behavior_recursive = 1
+text = "   x   "
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 120.0
+offset_bottom = 35.0
+text = "case 89-5162
+decedent: colt"
+label_settings = ExtResource("3_vs37g")
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
